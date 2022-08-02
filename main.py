@@ -3,9 +3,9 @@ from tkinter.tix import Tree
 import QzoneMgr
 
 
-interval=3
+interval=5
 
-template="""此条说说有
+template="""这条说说有
 {{likers}}个点赞
 {{comments}}条评论
 {{forwards}}次转发
