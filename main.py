@@ -9,10 +9,12 @@ template="""这条说说有
 {{likers}}个点赞
 {{comments}}条评论
 {{forwards}}次转发
-试试看！"""
+试试看！
+
+(每{{interval}}秒更新一次)"""
 
 def cookie_invalidated_callback():
-    print("cookie已失效")
+    print("QQ空间cookie已失效")
 
 def get_emotion_content(likers,comments,forwards,interval):
     global template
@@ -38,10 +40,10 @@ if __name__=='__main__':
         tid=oper.publish_emotion(get_emotion_content(0,0,0,10))
     else:
         if oper.tid_valid(tid):
-            print("可用的说说tid")
+            print("此说说tid可用")
         else:
-            raise Exception('tid 无效')
-    print(tid)
+            raise Exception('此说说tid无效')
+    print('说说tid:',tid)
 
     ls_traffic=(0,0,0)
     # 开始检测

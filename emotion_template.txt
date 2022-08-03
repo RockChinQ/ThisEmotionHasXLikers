@@ -1,7 +1,0 @@
-这条说说有
-{{likers}}个点赞
-{{comments}}条评论
-{{forwards}}次转发
-试试看！
-
-(每{{interval}}秒更新一次)
