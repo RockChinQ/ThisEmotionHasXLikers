@@ -37,7 +37,7 @@ if __name__=='__main__':
     tid=input("跟踪tid,输入1发表新说说:")
     # 发表说说
     if tid=='1':
-        tid=oper.publish_emotion(get_emotion_content(0,0,0,10))
+        tid=oper.publish_emotion(get_emotion_content(0,0,0,interval))
     else:
         if oper.tid_valid(tid):
             print("此说说tid可用")
