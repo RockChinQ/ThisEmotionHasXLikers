@@ -101,11 +101,11 @@ class QzoneOperator:
 
         inst = self
 
-        self.refresh_qzone_token(attempt=5)
-
-        if keepalive:
-            self.keepalive_proxy_thread = threading.Thread(target=self.__keepalive, args=(), daemon=True)
-            self.keepalive_proxy_thread.start()
+        # self.refresh_qzone_token(attempt=5)
+        #
+        # if keepalive:
+        #     self.keepalive_proxy_thread = threading.Thread(target=self.__keepalive, args=(), daemon=True)
+        #     self.keepalive_proxy_thread.start()
 
     def __keepalive(self):
         global inst
@@ -153,7 +153,7 @@ class QzoneOperator:
         self.headers['origin'] = 'https://user.qzone.qq.com'
 
         res = requests.post(url="https://up.qzone.qq.com/cgi-bin/upload/cgi_upload_image",
-                            params={"g_tk": self.gtk2, "qzonetoken": self.qzone_token, "uin": self.uin},
+                            params={"g_tk": self.gtk2, "uin": self.uin},
                             data={
                                 "filename": "filename",
                                 "zzpanelkey": "",
@@ -194,8 +194,8 @@ class QzoneOperator:
             images = []
 
         # 检查qzone_token是否存在
-        if self.qzone_token == "":
-            self.refresh_qzone_token(attempt=10)
+        # if self.qzone_token == "":
+        #     self.refresh_qzone_token(attempt=10)
 
         base64_images = images
 
@@ -241,7 +241,7 @@ class QzoneOperator:
             url="https://user.qzone.qq.com/proxy/domain/taotao.qzone.qq.com/cgi-bin/emotion_cgi_publish_v6",
             params={
                 'g_tk': self.gtk2,
-                'qzonetoken': self.qzone_token,
+                # 'qzonetoken': self.qzone_token,
                 'uin': self.uin,
             },
             cookies=self.cookie_dict,
@@ -297,8 +297,8 @@ class QzoneOperator:
         """更新说说(仅支持修改文字)"""
 
         # 检查qzone_token是否存在
-        if self.qzone_token == "":
-            self.refresh_qzone_token(attempt=10)
+        # if self.qzone_token == "":
+        #     self.refresh_qzone_token(attempt=10)
 
         # 包装request
         self.headers['referer'] = 'https://user.qzone.qq.com/' + str(self.uin)+"/infocenter"
